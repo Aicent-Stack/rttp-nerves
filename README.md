@@ -62,7 +62,3 @@ This is the binary wire format that underlies the JSON envelope for production p
 This Pulse Frame is already live in the Aicent test cluster (42k+ nodes). It is what lets 10,000 heterogeneous agents share KV state faster than a single-node GPU can compute the next token.
 
 The dissection is complete. The nerves are exposed, pulsing, and ready.
-
-- Or generate the live sequence diagram of a 10k-node KV sync under jitter?
-
-Your call. The organism is waiting.
