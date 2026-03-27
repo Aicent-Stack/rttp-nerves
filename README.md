@@ -1,4 +1,4 @@
-# rttp-nerves
+# rttp — The Nerves of Aicent Stack
 Real-Time Transport Protocol (RTTP) for AI-native communication. Sub-ms context synchronization and semantic multicast frames. Ending the Latency Tax.
 
 **Live Dissection: RTTP.com — The Nerves**  
