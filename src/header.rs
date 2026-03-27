@@ -8,7 +8,7 @@
 use std::net::SocketAddr;
 use std::time::{SystemTime, UNIX_EPOCH};
 use serde::{Serialize, Deserialize};
-use rpkid::Fingerprint;           // RPKI crate
+use rpki::Fingerprint;           // RPKI crate
 use zcmk::TokenMicro;             // nanosecond auction token
 
 #[repr(C, packed)]
