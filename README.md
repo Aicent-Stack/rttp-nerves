@@ -1,6 +1,7 @@
-**Aicent Stack • Sovereign AI Nervous System**
-# 💎 rttp — The Nerves of Aicent Stack
+![Aicent Stack](https://github.com/Aicent-Stack/.github/workflows/Rust%20CI%20-%20Aicent%20Stack/badge.svg)
+**Aicent Stack • Sovereign AI Nervous System** | SYSTEM STATUS: EVOLVING
 
+# 🔴 rttp — The Nerves of Aicent Stack
 ⚪ **AICENT** 💎 **RTTP** 🔴 **RPKI** 🟢 **ZCMK** 🟡 **GTIOT**
 
 <p align="left">
