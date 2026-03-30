@@ -1,10 +1,10 @@
-// Aicent Stack | RTTP (Real-Time Transport Protocol)
-// Domain: RTTP.com
+// Aicent Stack | RTTP (Real-Time Transfer Protocol)
+// Domain: https://rttp.com
 // Purpose: Sub-millisecond asynchronous pulse frame for Sovereign AI Nervous System
-// Status: RFC-001 Draft. 
-// License: Apache-2.0 or MIT.
+// Specification: RFC-002 Draft. 
+// License: Apache-2.0 via Aicent.com Organization.
 // rttp/src/header.rs — the neural backbone of the Aicent Stack
-//! RTTP Pulse Frame Header
+//! # RFC-002: RTTP Pulse Frame Header
 
 use serde::{Serialize, Deserialize};
 use std::time::{SystemTime, UNIX_EPOCH};
