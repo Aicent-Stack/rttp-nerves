@@ -1,13 +1,12 @@
-![Aicent Stack](https://github.com/Aicent-Stack/.github/workflows/Rust%20CI%20-%20Aicent%20Stack/badge.svg)
-**Aicent Stack • Sovereign AI Nervous System** | SYSTEM STATUS: EVOLVING
+**Aicent Stack • Sovereign AI Nervous System**
 
-# 🔴 rttp — The Nerves of Aicent Stack
+# 💎 rttp — The Nerves of Aicent Stack
 ⚪ **AICENT** 💎 **RTTP** 🔴 **RPKI** 🟢 **ZCMK** 🟡 **GTIOT**
 
 <p align="left">
-  <code>🛠️ Language: Rust</code> &nbsp;
-  <code>📦 Workspace: aicent-stack</code> &nbsp;
-  <code>🛡️ Status: EVOLVING</code>
+  <code> 🛠️ Build: Passing </code> &nbsp; 
+  <code> 🦀 Language: Rust </code> &nbsp; 
+  <code> 🛡️ Status: EVOLVING </code>
 </p>
 
 ![RTTP-01](https://github.com/user-attachments/assets/e59ba949-883e-4fdb-acd3-626688c047fd)
