@@ -1,14 +1,12 @@
 [package]
 name = "rttp"
-version = "0.1.0"
-edition = "2026"
-authors = ["Aicent Stack Team"]
-license = "Apache-2.0"
-description = "RTTP - The Nerves of Aicent Stack. Millisecond memory snapshots and <800μs Pulse Frame protocol."
-repository = "https://github.com/Aicent-Stack/rttp"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
 
 [dependencies]
-serde = { version = "1.0", features = ["derive"] }
-bytes = "1.6"
-anyhow = "1.0"
-thiserror = "1.0"
+serde.workspace = true
+anyhow.workspace = true
+bytes.workspace = true
