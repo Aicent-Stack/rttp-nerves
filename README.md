@@ -8,7 +8,6 @@
   <code>📦 Workspace: aicent-stack</code> &nbsp;
   <code>🛡️ Status: EVOLVING</code>
 </p>
----
 
 ![RTTP-01](https://github.com/user-attachments/assets/e59ba949-883e-4fdb-acd3-626688c047fd)
 
