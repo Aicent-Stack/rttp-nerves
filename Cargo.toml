@@ -8,11 +8,7 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-# --- The Reflex Trinity ---
-rpki = { workspace = true }
-zcmk = { workspace = true }
-
-# --- Primitives ---
+# 🛡️ Core fix: Completely removes rpki and zcmk dependencies, breaking the cycle.
 serde = { workspace = true, features = ["derive"] }
 anyhow.workspace = true
 bytes.workspace = true
@@ -23,5 +19,4 @@ crossbeam.workspace = true
 [features]
 default = ["std"]
 std = ["serde/std", "anyhow/std"]
-# 🛡️ Fix: Removed the undefined no-std-compat and left it empty for future expansion.
 embedded = []
