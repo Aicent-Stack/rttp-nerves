@@ -8,15 +8,17 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-# 🛡️ Core fix: Completely removes rpki and zcmk dependencies, breaking the cycle.
+# --- High-Performance Primitives ---
 serde = { workspace = true, features = ["derive"] }
 anyhow.workspace = true
 bytes.workspace = true
 tokio = { workspace = true, features = ["net", "rt", "sync"] }
 smallvec.workspace = true
 crossbeam.workspace = true
+once_cell.workspace = true
 
 [features]
 default = ["std"]
 std = ["serde/std", "anyhow/std"]
-embedded = []
+# [RFC-002] Placeholder for future XDP/DPDK acceleration features
+hardware-accelerated = []
