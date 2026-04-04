@@ -38,15 +38,6 @@ tracing = { workspace = true } # Industrial-grade telemetry for nervous impulses
 # [RFC-005] Pre-configured for Embassy executor for hard real-time loops
 embassy-executor = { workspace = true, optional = true }
 
-[features]
-default = ["std"]
-# Standard library support for general-purpose compute
-std = ["serde/std", "anyhow/std", "tokio/full"]
-# [RFC-002] Feature flag for bare-metal/embedded hardware offloading
-embedded = ["embassy-executor", "no-std-compat"]
-# [RFC-002] Placeholder for future XDP/DPDK/RDMA hardware acceleration
-hardware-accelerated = []
-
 [dev-dependencies]
 # Performance benchmarking for <420µs sync targets
 criterion = { workspace = true }
