@@ -1,36 +1,27 @@
 [package]
 name = "rttp"
-description = "RTTP: Sub-millisecond Neural Transport and Stateful Semantic Multicast Protocol [RFC-002]"
+description = "RTTP: Sub-millisecond Neural Transport Protocol [RFC-002]"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true
 license.workspace = true
 repository.workspace = true
-homepage = "https://rttp.com"
-documentation = "https://github.com/Aicent-Stack/manifesto/blob/main/rfcs/RFC-002-RTTP-NERVES.md"
-keywords = ["neural-transport", "low-latency", "rfc-002", "pulse-frame", "multicast"]
-categories = ["network-programming", "asynchronous", "no-std"]
 
 [dependencies]
-# --- The Reflex Trinity (Integrated Pulse Header) ---
-# RTTP carries Identity and Value as native dimensions
-rpki = { workspace = true, optional = false }
-zcmk = { workspace = true, optional = false }
+# --- The Reflex Trinity ---
+rpki = { workspace = true }
+zcmk = { workspace = true }
 
-# --- High-Performance Networking primitives ---
-serde.workspace = true
+# --- Primitives ---
+serde = { workspace = true, features = ["derive"] }
 anyhow.workspace = true
-bytes.workspace = true         # Zero-copy buffer management
+bytes.workspace = true
 tokio = { workspace = true, features = ["net", "rt", "sync"] }
-smallvec.workspace = true     # Stack-allocation for nanosecond dispatch
-crossbeam.workspace = true     # Lock-free shunting between nodes
+smallvec.workspace = true
+crossbeam.workspace = true
 
 [features]
 default = ["std"]
 std = ["serde/std", "anyhow/std"]
-# Future-proofing for bare-metal GTIOT nodes
-embedded = ["no-std-compat"]
-
-[dev-dependencies]
-# Performance benchmarking for <420µs targets
-criterion = "0.5"
+# 🛡️ Fix: Removed the undefined no-std-compat and left it empty for future expansion.
+embedded = []
