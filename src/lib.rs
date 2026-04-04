@@ -16,7 +16,6 @@
 //! - **Kinetic Resonance**: Ensuring temporal alignment for Hive-scale coordination (RFC-006).
 
 #![deny(missing_docs)]
-// SAFETY: Unsafe is permitted only for zero-copy hardware mapping (PulseFrameHeader).
 #![allow(unsafe_code)]
 
 pub mod header;
@@ -24,7 +23,7 @@ pub mod header;
 pub use crate::header::{PulseFrameHeader, on_pulse_received};
 
 /// [RFC-002] Neural Spine Interface
-/// Defines the behavior of the transport backbone.
+/// Defines the behavior of the transport backbone for the Aicent Stack.
 pub trait NeuralSpine {
     /// Broadcasts a Pulse Frame to the semantic affinity group.
     fn emit_pulse(&self, header: &PulseFrameHeader, payload: &[u8]) -> Result<(), String>;
@@ -35,11 +34,14 @@ pub trait NeuralSpine {
 
 /// [RFC-003] Quarantine Reflex
 /// High-priority interface for RPKI to isolate pathogens instantly.
-pub fn emit_quarantine_pulse(pathogen_fingerprint: &[u8; 32], reason: u16) {
+/// The `_reason` parameter defines the pathogen classification.
+pub fn emit_quarantine_pulse(pathogen_fingerprint: &[u8; 32], _reason: u16) {
     // Injects a Priority 255 frame into the RTTP spine to cut off the node
     println!("\x1b[1;31m[RTTP-SHIELD]\x1b[0m Quarantine pulse emitted for 0x{:02x?}", &pathogen_fingerprint[..4]);
 }
 
-/// [Standard v1.0] Protocol Constants
-pub const RTTP_MAGIC: u32 = 0x5254_5450; // "RTTP"
+/// [Standard v1.0] Protocol Magic Number identifier.
+pub const RTTP_MAGIC: u32 = 0x5254_5450; 
+
+/// [Standard v1.0] The current active version of the RTTP protocol.
 pub const PROTOCOL_VERSION: &str = "0.1.0-standard";
