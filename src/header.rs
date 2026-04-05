@@ -11,17 +11,16 @@
 
 use serde::{Deserialize, Serialize};
 
-/// [RFC-002] RTTP Pulse Frame Header
+/// [RFC-002] RTTP Pulse Frame Header.
 /// Optimized for zero-copy parsing and hardware-level NIC offloading (DPDK/eBPF/XDP).
 ///
-/// [PERF] Forced 64-byte alignment to match CPU cache-line boundaries, 
-/// eliminating False Sharing and minimizing memory controller pressure.
-/// This structure serves as the physical anchor for the "Reflex Trinity,"
-/// integrating Identity, Value, and Intent into a single atomic bit-stream.
+/// [PERF] Aligned to a 64-byte boundary to match CPU cache-line architecture, 
+/// eliminating False Sharing and maximizing throughput for the Reflex Arc.
+/// This structure encapsulates the "Reflex Trinity": Identity, Value, and Intent.
 #[repr(C, align(64))]
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub struct PulseFrameHeader {
-    /// 0x5254_5450 ("RTTP") - Protocol Magic Number for sub-nanosecond traffic rejection.
+    /// 0x5254_5450 ("RTTP") - Protocol Magic Number for sub-nanosecond rejection.
     pub magic: u32,
     /// 0x0100 (Standard v1.0) - Current active protocol version.
     pub version: u16,
@@ -47,8 +46,8 @@ pub struct PulseFrameHeader {
 
 impl PulseFrameHeader {
     /// [PERF] Zero-Copy Byte Mapping.
-    /// Inlining forces the compiler to generate direct memory-to-logic mappings, 
-    /// eliminating stack frame overhead in high-frequency neural hot-paths.
+    /// Maps the header structure directly to a raw byte buffer without allocation.
+    /// Inlining eliminates function call overhead in the neural hot-path.
     #[inline(always)]
     pub fn as_bytes(&self) -> &[u8] {
         unsafe { std::slice::from_raw_parts(self as *const _ as *const u8, 64) }
@@ -68,7 +67,7 @@ impl PulseFrameHeader {
             zcmk_bid: bid,
             semantic_hash: sem_hash,
             priority: 128,      // Standard Priority
-            ttl: 64,            // Grid Radius
+            ttl: 64,            // Grid Radius (Hops)
             timestamp_ns: now,
             checksum: 0,
         }
@@ -80,7 +79,7 @@ impl PulseFrameHeader {
 /// This implementation uses branch prediction hints to prioritize the 'Success Path.'
 pub fn on_pulse_received(frame: &[u8]) {
     // 🛡️ [SECURITY AUDIT] Strict memory boundary enforcement (RFC-003 Compliance).
-    // The unlikely path is shunted to a 'Cold' function to optimize I-Cache locality.
+    // Malformed pulses are shunted to a 'Cold' function to protect the I-Cache.
     if frame.len() < 64 {
         handle_malformed_pulse(); 
         return;
@@ -95,9 +94,8 @@ pub fn on_pulse_received(frame: &[u8]) {
     }
 
     // 🔗 [Standard v1.0 Integration Note]
-    // To ensure architectural homeostasis and avoid cyclic package dependencies,
-    // in-band verification (RPKI) and metabolic clearing (ZCMK) are coordinated 
-    // by the Orchestration layer (AICENT).
+    // Verification (RPKI) and Metabolic Clearing (ZCMK) are performed by the 
+    // Orchestration layer (AICENT) to maintain a clean unidirectional dependency graph.
     #[cfg(debug_assertions)]
     println!(
         "\x1b[1;36m[RTTP-PULSE]\x1b[0m 64-byte Header verified. Ready for Reflex Arc."
