@@ -7,64 +7,65 @@
 //! 
 //! The `rttp` crate implements the high-speed nervous system of the Aicent Stack.
 //! It replaces legacy protocol overhead with a deterministic, asynchronous 
-//! pulse-frame architecture designed for AI-native workloads across a six-domain organism.
+//! pulse-frame architecture designed for AI-native workloads.
 //!
 //! ### Core Nerves Logic:
-//! - **Stateful Semantic Multicast**: Routing via Task Affinity (RFC-001) instead of legacy IP vectors.
+//! - **Stateful Semantic Multicast**: Routing via Task Affinity instead of legacy IPs.
 //! - **Context Snapshot Sharding**: Sub-ms synchronization of high-dimensional KV-caches.
-//! - **Reflex Trinity**: Wire-level integration of Security (RFC-003) and Economics (RFC-004).
-//! - **Kinetic Resonance**: Ensuring temporal parity for planetary Hive coordination (RFC-006).
+//! - **Reflex Trinity Support**: Provides the wire-format for RPKI and ZCMK integration.
+//! - **Kinetic Resonance**: Ensuring temporal parity for planetary Hive coordination.
 
 #![deny(missing_docs)]
-// SAFETY: Unsafe is strictly constrained to zero-copy memory casting for 
-// hardware-accelerated NIC offloading.
+// SAFETY: Unsafe is strictly constrained to zero-copy memory casting within 
+// the header module for hardware-accelerated NIC offloading.
 #![allow(unsafe_code)]
 
-/// [RFC-002] Core Header Definitions
-/// Contains the 64-byte, cache-aligned Pulse Frame specification.
+/// [RFC-002] Core Header Definitions.
+/// Contains the 64-byte, hardware-aligned Pulse Frame specification.
 pub mod header;
 
 pub use crate::header::{on_pulse_received, PulseFrameHeader};
 
-/// [RFC-002] Neural Transmission Error Set
-/// Defines the critical physical and logical failure modes within the neural spine.
+/// [RFC-002] Neural Transmission Error Set.
+/// Defines the critical physical failure modes within the neural spine.
 #[derive(Debug, Clone, PartialEq)]
 pub enum NerveError {
     /// Network jitter exceeded the 50µs kinetic resonance threshold (RFC-006).
     JitterLimitExceeded,
     /// Semantic Multicast failed to identify an active affinity group.
     RoutingAnomaly,
-    /// Forward Error Correction (FEC) failed to recover the damaged tensor payload.
+    /// Forward Error Correction (FEC) failed to recover the damaged payload.
     PulseCorruption,
     /// Neural sever: RTTP heartbeat timeout detected by the physical edge (>3ms).
     NeuralSeverance,
 }
 
-/// [RFC-002] Pulse Bundle
-/// A complete atomic unit of neural transmission.
-/// It binds the 64-byte protocol envelope to the variable-length tensor manifold.
+/// [RFC-002] Pulse Bundle.
+/// A complete atomic unit of neural transmission, binding the protocol 
+/// envelope to the high-dimensional tensor payload.
 #[derive(Debug, Clone)]
 pub struct PulseBundle {
-    /// The fixed 64-byte RPKI/ZCMK-integrated header.
+    /// The fixed 64-byte RPKI/ZCMK-ready header.
     pub header: PulseFrameHeader,
     /// The raw tensor manifold or cognitive instruction shard.
     pub payload: Vec<u8>,
 }
 
-/// [RFC-002] Neural Spine Interface
+/// [RFC-002] Neural Spine Interface.
 /// Defines the behavioral contract for the transport backbone of the Aicent Stack.
+/// Any L0 implementation must adhere to these timing and shunting requirements.
 pub trait NeuralSpine {
     /// Emits a high-frequency pulse into the Aicent.net operational grid.
     fn emit_pulse(&self, bundle: PulseBundle) -> Result<(), NerveError>;
     
-    /// Ingests an inbound pulse from the RTTP spine utilizing zero-copy dispatch.
+    /// Ingests an inbound pulse from the network utilizing zero-copy dispatch.
     fn ingest_pulse(&self) -> Result<PulseBundle, NerveError>;
     
-    /// Synchronizes the local monotonic clock to ensure Kinetic Resonance alignment.
+    /// Synchronizes the local monotonic clock to maintain Kinetic Resonance.
     fn calibrate_clock(&self) -> u32;
 }
 
-/// [RFC-003] Quarantine Reflex Emission
+/// [RFC-003] Quarantine Reflex.
 /// High-priority interface utilized by the Immune Pipeline (RPKI) to 
 /// surgically isolate pathogens from the nervous system.
 /// 
