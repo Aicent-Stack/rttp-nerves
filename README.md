@@ -1,3 +1,5 @@
+[![Organism Vitality & Protocol Audit](https://github.com/Aicent-Stack/aicent-stack/actions/workflows/rust-ci.yml/badge.svg)](https://github.com/Aicent-Stack/aicent-stack/actions/workflows/rust-ci.yml)
+
 Aicent Stack • Sovereign AI Nervous System
 
 # 💎 rttp — The Nerves of Aicent Stack
