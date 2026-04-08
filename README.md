@@ -1,12 +1,12 @@
 [![Organism Vitality & Protocol Audit](https://github.com/Aicent-Stack/aicent-stack/actions/workflows/rust-ci.yml/badge.svg)](https://github.com/Aicent-Stack/aicent-stack/actions/workflows/rust-ci.yml)
 
-Aicent Stack • Sovereign AI Nervous System
-
 [![RFC](https://img.shields.io/badge/RFC-002-cyan.svg)](https://github.com/Aicent-Stack/manifesto/blob/main/rfcs/RFC-002-RTTP-NERVES.md)
 [![Status](https://img.shields.io/badge/Status-Homeostasis-brightgreen.svg)](#)
 [![Org](https://img.shields.io/badge/Org-Aicent.com-blue.svg)](http://rttp.com)
 
 **⚪ [AICENT](http://aicent.com) | 💎 [RTTP](http://rttp.com) | 🔴 [RPKI](http://rpki.com) | 🟢 [ZCMK](http://zcmk.com) | 🟡 [GTIOT](http://gtiot.com) | 🟣 [AICENT-NET](http://aicent.net) | 🌿 [epoekie](http://epoekie.com)**
+
+Aicent Stack • Sovereign AI Nervous System
 
 # 💎 rttp — The Nerves of Aicent Stack
 
